@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="1" author="marcelo.pinheiro">
+        <preConditions onFail="MARK_RAN" onFailMessage="Tabela movies já existe">
+            <not>
+                <tableExists tableName="movies"/>
+            </not>
+        </preConditions>
+        <comment>Criacao da tabela de filmes</comment>
+        <createTable tableName="movies">
+            <column name="id" type="${bigint}" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_movies"/>
+            </column>
+            <column name="year" type="${int}"/>
+            <column name="title" type="varchar(250)"/>
+            <column name="studios" type="varchar(250)"/>
+            <column name="producers" type="varchar(250)"/>
+            <column name="winner" type="${boolean}" defaultValueComputed="true"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+
