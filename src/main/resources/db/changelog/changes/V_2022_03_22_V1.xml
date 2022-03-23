@@ -17,7 +17,7 @@
             <column name="title" type="varchar(250)"/>
             <column name="studios" type="varchar(250)"/>
             <column name="producers" type="varchar(250)"/>
-            <column name="winner" type="${boolean}" defaultValueComputed="true"/>
+            <column name="winner" type="${boolean}" defaultValueComputed="false"/>
         </createTable>
     </changeSet>
 
